@@ -88,8 +88,6 @@
 						interface -->
 					<id>anypoint</id>
 					<muleVersion>3.9.0</muleVersion>
-					<username>${username}</username>
-					<password>${password}</password>
 					<redeploy>true</redeploy>
 					<environment>Sandbox</environment>
 				</configuration>
