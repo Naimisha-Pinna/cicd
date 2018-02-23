@@ -91,8 +91,8 @@
 						<!-- muleVersion is the runtime version as it appears on the CloudHub 
 							interface -->
 						<muleVersion>3.9.0</muleVersion>
-						<server>${servername}</server>
-						<url>${urlname}</url>
+						<username>${usrname}</username>
+						<password>${pwd}</password>
 						<redeploy>true</redeploy>
 						<environment>Sandbox</environment>
 					</configuration>
