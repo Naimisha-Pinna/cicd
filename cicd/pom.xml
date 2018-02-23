@@ -82,11 +82,11 @@
 				<groupId>org.mule.tools.maven</groupId>
 				<artifactId>mule-maven-plugin</artifactId>
 				<version>2.0</version>
+				<id>anypoint</id>
 				<configuration>
 					<deploymentType>cloudhub</deploymentType>
 					<!-- muleVersion is the runtime version as it appears on the CloudHub 
 						interface -->
-					<id>anypoint</id>
 					<muleVersion>3.9.0</muleVersion>
 					<redeploy>true</redeploy>
 					<environment>Sandbox</environment>
