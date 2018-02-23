@@ -17,6 +17,7 @@
 		<mule.tools.version>1.2</mule.tools.version>
 		<munit.version>1.3.7</munit.version>
 		<mule.munit.support.version>3.9.1</mule.munit.support.version>
+		<servername>cloudhub.io</servername>
 	</properties>
 
 
@@ -89,7 +90,7 @@
 						<!-- muleVersion is the runtime version as it appears on the CloudHub 
 							interface -->
 						<muleVersion>3.9.0</muleVersion>
-						<server>cloudhub.io</server>
+						<server>${servername}</server>
 						<redeploy>true</redeploy>
 						<environment>Sandbox</environment>
 					</configuration>
