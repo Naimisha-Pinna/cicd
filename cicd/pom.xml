@@ -17,7 +17,10 @@
 		<mule.tools.version>1.2</mule.tools.version>
 		<munit.version>1.3.7</munit.version>
 		<mule.munit.support.version>3.9.1</mule.munit.support.version>
+		<cloudhub.domain>mydomain</cloudhub.domain>
 	</properties>
+
+
 
 
 	<build>
@@ -80,26 +83,30 @@
 					</coverage>
 				</configuration>
 			</plugin>
+			<!-- <plugin> <groupId>org.mule.tools.maven</groupId> <artifactId>mule-maven-plugin</artifactId> 
+				<version>2.0</version> <configuration> <deploymentType>cloudhub</deploymentType> 
+				<muleVersion>3.9.0</muleVersion> <id>cloudhub.io</id> <redeploy>true</redeploy> 
+				<environment>Sandbox</environment> </configuration> <executions> <execution> 
+				<id>deploy</id> <phase>deploy</phase> <goals> <goal>deploy</goal> </goals> 
+				</execution> </executions> </plugin> -->
 			<plugin>
-				<groupId>org.mule.tools.maven</groupId>
-				<artifactId>mule-maven-plugin</artifactId>
-				<version>2.0</version>
-				<configuration>
-					<deploymentType>cloudhub</deploymentType>
-					<!-- muleVersion is the runtime version as it appears on the CloudHub 
-						interface -->
-					<muleVersion>3.9.0</muleVersion>
-					<id>cloudhub.io</id>
-					<redeploy>true</redeploy>
-					<environment>Sandbox</environment>
-				</configuration>
+				<groupId>org.mule.tools.appkit</groupId>
+				<artifactId>mule-appkit-maven-plugin</artifactId>
+				<version>3.4</version>
+				<extensions>true</extensions>
 				<executions>
 					<execution>
-						<id>deploy</id>
+						<!-- This can be changed to any Maven phase -->
 						<phase>deploy</phase>
 						<goals>
-							<goal>deploy</goal>
+							<goal>cloudhub-deploy</goal>
 						</goals>
+						<configuration>
+							<!-- Where the app will be deployed -->
+							<domain>${cloudhub.domain}</domain>
+							<!-- Max wait time in millisecs before timeout -->
+							<maxWaitTime>180000</maxWaitTime>
+						</configuration>
 					</execution>
 				</executions>
 			</plugin>
@@ -216,6 +223,18 @@
 				<enabled>false</enabled>
 			</snapshots>
 		</pluginRepository>
+		<pluginRepositories>
+			<pluginRepository>
+				<id>mulesoft-releases</id>
+				<name>MuleSoft Release Repository</name>
+				<url>http://repository.mulesoft.org/releases/</url>
+			</pluginRepository>
+			<pluginRepository>
+				<id>mulesoft-snapshots</id>
+				<name>MuleSoft Snapshot Repository</name>
+				<url>http://repository.mulesoft.org/snapshots/</url>
+			</pluginRepository>
+		</pluginRepositories>
 	</pluginRepositories>
 
 </project>
